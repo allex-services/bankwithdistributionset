@@ -1,0 +1,21 @@
+{
+  "name": "allex_bankwithdistributionsetservice",
+  "version": "0.1.0",
+  "description": "BankWithDistributionSetService",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url" : "git@gitlab.hers.rs:allex_services/bankwithdistributionset"
+  },
+  "keywords": [
+    "ecosystem:allex",
+    "Service",
+    "BankWithDistributionSet"
+  ],
+  "author": "HERS Belgrade",
+  "license": "ISC"
+}
+
