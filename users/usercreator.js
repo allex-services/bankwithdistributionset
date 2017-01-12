@@ -18,8 +18,11 @@ function createUser(execlib, ParentUser) {
   };
 
   User.prototype.setDistribution = function (bankname, distributionhash, referencearray, defer) {
-    console.log('setDistribution?', bankname, distributionhash);
     qlib.promise2defer(this.__service.setDistribution(bankname, distributionhash, referencearray), defer);
+  };
+
+  User.prototype.distribute = function (bankname, amount, referencearray, defer) {
+    qlib.promise2defer(this.__service.distribute(bankname, amount, referencearray), defer);
   };
 
   return User;

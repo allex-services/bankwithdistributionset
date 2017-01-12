@@ -26,7 +26,7 @@ function createBankWithDistributionSetService(execlib, ParentService, FundDistri
 
   function distributionSetter (distributionhash, referencearray, bank) {
     if (!bank.setDistribution) {
-      console.error('koj moj je', bank, '?');
+      throw new lib.Error('INTERNAL_BANK_FETCH_ERROR');
     }
     var ret = bank ? bank.setDistribution(distributionhash, referencearray) : false;
     distributionhash = null;
@@ -37,6 +37,20 @@ function createBankWithDistributionSetService(execlib, ParentService, FundDistri
   BankWithDistributionSetService.prototype.setDistribution = function (bankname, distributionhash, referencearray) {
     return qlib.promise2decision(this.getOrCreateBank(bankname), distributionSetter.bind(null, distributionhash, referencearray));
   };
+
+  function distributor (amount, referencearray, bank) {
+    if (!bank.distribute) {
+      throw new lib.Error('INTERNAL_BANK_FETCH_ERROR');
+    }
+    var ret = bank ? bank.distribute(amount, referencearray) : false;
+    amount = null;
+    referencearray = null;
+    return ret;
+  }
+
+  BankWithDistributionSetService.prototype.distribute = function (bankname, amount, referencearray) {
+    return qlib.promise2decision(this.getOrCreateBank(bankname), distributor.bind(null, amount, referencearray));
+  }
   
   return BankWithDistributionSetService;
 }
