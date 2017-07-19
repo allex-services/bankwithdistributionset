@@ -2,10 +2,10 @@ function createServicePack(execlib) {
   'use strict';
   return {
     service: {
-      dependencies: ['allex:bankset', 'allex:funddistributionbankextension:lib']
+      dependencies: ['allex_banksetservice', 'allex:funddistributionbankextension:lib']
     },
     sinkmap: {
-      dependencies: ['allex:bankset']
+      dependencies: ['allex_banksetservice']
     }, /*
     tasks: {
       dependencies: []
